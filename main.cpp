@@ -10,12 +10,22 @@ int main()
     pose2D initPose;
     initPose.x = 100;
     initPose.y = 200;
-    initPose.theta = 0;
+    // initPose.theta = 0;
 
     robot myRobot(30, 40, initPose);
 
     mySimulator.display();
-    myRobot.draw();
+
+    Imagine::drawLine(0, 50, 1000, 50, Imagine::BLACK, 3);
+
+    while(true)
+    {
+        myRobot.draw();
+        Imagine::milliSleep(20);
+        myRobot.erase();
+        myRobot.teleop();
+        myRobot.move();
+    }
 
     Imagine::endGraphics();
     return 0;

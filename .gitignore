@@ -2,3 +2,5 @@
 /build/
 graphics.cpp
 graphics.h
+laser.cpp
+laser.h

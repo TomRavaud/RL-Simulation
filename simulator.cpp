@@ -1,5 +1,3 @@
-#include <Imagine/Graphics.h>
-
 #include "simulator.h"
 
 simulator::simulator(int w, int h)
@@ -8,7 +6,7 @@ simulator::simulator(int w, int h)
     height = h;
 }
 
-void simulator::display()
+void simulator::display() const
 {
     Imagine::openWindow(width, height);
 }

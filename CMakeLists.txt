@@ -8,6 +8,7 @@ set(SRCS
     main.cpp
     simulator.cpp
     robot.cpp
+    utils.cpp
     )
 
 set(HEADERS
