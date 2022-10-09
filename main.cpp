@@ -2,29 +2,47 @@
 
 #include "simulator.h"
 #include "robot.h"
+#include "laser.h"
+
 
 int main()
 {
-    simulator mySimulator(1000, 600);
+    // Instantiate a simulation environment
+    Simulator mySimulator;
 
-    pose2D initPose;
-    initPose.x = 100;
-    initPose.y = 200;
-    // initPose.theta = 0;
+    // Initialize the pose of the robot (and the laser)
+    const pose2D initPose = {450, 120};
 
-    robot myRobot(30, 40, initPose);
+    // Instantiate a robot and a laser
+    Robot myRobot(30, 40, initPose);
+    Laser myLaser(initPose);
 
+    // Start the simulator
     mySimulator.display();
 
-    Imagine::drawLine(0, 50, 1000, 50, Imagine::BLACK, 3);
-
+    // Main simulation loop
     while(true)
     {
+        // Draw the grid and the robot
+        mySimulator.drawMap();
         myRobot.draw();
+
+        // Compute the length of the laser's rays and draw them
+        myLaser.computeDistances(mySimulator);
+        myLaser.drawRays();
+
+        // Set the simulation rate (about 50Hz)
         Imagine::milliSleep(20);
+
+        // Erase the robot and compute its next pose based on user's keypresses
         myRobot.erase();
         myRobot.teleop();
         myRobot.move();
+
+        myLaser.eraseRays();
+
+        // Move the laser's origin with the robot
+        myLaser.update(myRobot);
     }
 
     Imagine::endGraphics();

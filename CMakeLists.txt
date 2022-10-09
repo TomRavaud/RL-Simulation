@@ -9,12 +9,16 @@ set(SRCS
     simulator.cpp
     robot.cpp
     utils.cpp
+    laser.cpp
+    ray.cpp
     )
 
 set(HEADERS
     simulator.h
     robot.h
     utils.h
+    laser.h
+    ray.h
     )
 
 # add_executable(helloWorld hello_world.cpp)

@@ -3,8 +3,8 @@
 pose2D pose2D::operator+(vector2D displacement)
 {
     pose2D newPose;
-    newPose.x = x + displacement.x;
-    newPose.y = y + displacement.y;
+    newPose.position.x = position.x + displacement.x;
+    newPose.position.y = position.y + displacement.y;
     return newPose;
 }
 

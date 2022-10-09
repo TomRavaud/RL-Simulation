@@ -4,15 +4,21 @@
 
 struct vector2D
 {
-    int x;
-    int y;
+    double x;
+    double y;
+
+    /**
+     * @brief Multiply a vector by a scalar
+     * 
+     * @param k 
+     * @return vector2D 
+     */
     vector2D operator*(float k);
 };
 
 struct pose2D
 {
-    int x;
-    int y;
+    vector2D position;
     // int theta;
 
     /**

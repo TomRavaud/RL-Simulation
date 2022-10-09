@@ -5,16 +5,18 @@
 
 const vector2D DISPLACEMENT[4] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
-class robot
+class Robot
 {
 private:
     int width;
     int height;
     int direction;
-    pose2D pose;
     Imagine::Color color = Imagine::RED;
 
+    pose2D pose;
+
 public:
+
     /**
      * @brief Construct a new robot object
      * 
@@ -22,19 +24,39 @@ public:
      * @param h Height of the robot
      * @param initPose Initial pose of the robot
      */
-    robot(int w, int h, pose2D initPose);
+    Robot(int w, int h, pose2D initPose);
+
+    /**
+     * @brief Get the pose of the robot
+     * 
+     * @return pose2D 
+     */
+    inline pose2D getPose() const
+    {
+        return pose;
+    }
 
     /**
      * @brief Draw the robot on the map
      * 
      */
-    void draw() const;
+    inline void draw() const
+    {
+        // Represent the robot with a rectangle
+        Imagine::fillRect(pose.position.x - width/2, pose.position.y - height/2, width, height, color);
+        // Indicate the center of the robot
+        Imagine::fillCircle(pose.position.x, pose.position.y, 2, Imagine::BLACK);
+    }
 
     /**
      * @brief Remove the robot from the map
      * 
      */
-    void erase() const;
+    inline void erase() const
+    {
+        // Give the robot the background color to make it disappear
+        Imagine::fillRect(pose.position.x - width/2, pose.position.y - height/2, width, height, Imagine::WHITE);
+    }
 
     /**
      * @brief Make the robot moving
