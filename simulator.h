@@ -57,7 +57,7 @@ public:
     }
 
     /**
-     * @brief Get the grid cell coordinates
+     * @brief Get the grid cell value
      * 
      * @param cell 
      * @return true 

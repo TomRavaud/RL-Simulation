@@ -19,7 +19,7 @@ struct vector2D
 struct pose2D
 {
     vector2D position;
-    // int theta;
+    double orientation;
 
     /**
      * @brief Change the pose given a displacement vector

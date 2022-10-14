@@ -11,17 +11,16 @@ int main()
     Simulator mySimulator;
 
     // Initialize the pose of the robot (and the laser)
-    const pose2D initPose = {450, 120};
+    const pose2D initPose = {450, 120, 0};
 
     // Instantiate a robot and a laser
-    Robot myRobot(30, 40, initPose);
+    Robot myRobot(20, initPose);
     Laser myLaser(initPose);
 
     // Start the simulator
     mySimulator.display();
 
-    // Main simulation loop
-    while(true)
+    while(!myRobot.collision(mySimulator))
     {
         // Draw the grid and the robot
         mySimulator.drawMap();
@@ -31,18 +30,26 @@ int main()
         myLaser.computeDistances(mySimulator);
         myLaser.drawRays();
 
+        // Draw what was buffered
+        Imagine::noRefreshEnd();
+
         // Set the simulation rate (about 50Hz)
         Imagine::milliSleep(20);
+
+        // Start to buffer 2d drawings
+        Imagine::noRefreshBegin();
 
         // Erase the robot and compute its next pose based on user's keypresses
         myRobot.erase();
         myRobot.teleop();
-        myRobot.move();
+        myRobot.action();
+        // myRobot.move();
 
         myLaser.eraseRays();
 
         // Move the laser's origin with the robot
         myLaser.update(myRobot);
+
     }
 
     Imagine::endGraphics();

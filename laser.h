@@ -14,8 +14,10 @@ private:
     //TODO: Take the frequency into account
     const float FREQUENCY = 10.;
 
+    // Laser's angular field of view
     const float FOV = M_PI_2;
-    const int NUMBER_OF_RAYS = 5;
+
+    const int NUMBER_OF_RAYS = 10;
 
     //TODO: Take care of distances limits
     const double DISTANCE_MIN = 0.;

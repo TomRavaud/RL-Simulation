@@ -11,12 +11,13 @@ Laser::Laser(pose2D initPose)
     // Compute the angle step between two consecutive rays
     const float ANGLE_STEP = FOV / (NUMBER_OF_RAYS-1);
 
+    // Set initial origin and direction of the rays
     for(int k = 0; k < NUMBER_OF_RAYS; k++)
     {
         rays[k].setOrigin(pose.position);
 
         float rayAngle = -FOV/2 + k*ANGLE_STEP;
-        rays[k].setDirection({cos(rayAngle), sin(rayAngle)});
+        rays[k].setDirection({cos(M_PI/2 + rayAngle), sin(M_PI/2 + rayAngle)});
     }
 }
 
@@ -118,10 +119,16 @@ void Laser::update(Robot myRobot)
     // Update the pose of the laser
     pose.position = myRobot.getPose().position;
 
-    // Update the origin of each ray
+    const float ANGLE_STEP = FOV / (NUMBER_OF_RAYS-1);
+
+    // Update the origin and the direction of each ray
     for (int k = 0; k < NUMBER_OF_RAYS; k++)
     {
         rays[k].setOrigin(pose.position);
+
+        float robotOrientation = myRobot.getPose().orientation;
+        float rayAngle = -FOV/2 + k*ANGLE_STEP;
+        rays[k].setDirection({cos(robotOrientation + rayAngle), sin(robotOrientation + rayAngle)});
     }
 }
 

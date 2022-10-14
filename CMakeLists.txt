@@ -21,7 +21,6 @@ set(HEADERS
     ray.h
     )
 
-# add_executable(helloWorld hello_world.cpp)
 add_executable(simulation ${SRCS} ${HEADERS})
 
 # Load the file ImagineConfig.cmake which contains commands, as
