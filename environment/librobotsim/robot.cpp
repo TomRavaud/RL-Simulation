@@ -1,4 +1,4 @@
-#include "robot.h"
+#include "robot.hpp"
 
 Robot::Robot(int s, pose2D initPose)
 {

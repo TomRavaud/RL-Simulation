@@ -1,9 +1,9 @@
 #pragma once
 
-#include "utils.h"
-#include "robot.h"
-#include "ray.h"
-#include "simulator.h"
+#include "utils.hpp"
+#include "robot.hpp"
+#include "ray.hpp"
+#include "simulator.hpp"
 
 class Laser
 {

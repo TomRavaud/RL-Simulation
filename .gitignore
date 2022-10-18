@@ -1,3 +1,4 @@
 .vscode/
-/build/
 raycasting_old.gif
+robotsim.cpp
+/CMakeLists.txt

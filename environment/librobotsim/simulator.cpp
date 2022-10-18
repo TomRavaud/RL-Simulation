@@ -1,4 +1,4 @@
-#include "simulator.h"
+#include "simulator.hpp"
 
 void Simulator::display() const
 {

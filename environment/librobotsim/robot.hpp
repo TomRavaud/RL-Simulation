@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Imagine/Graphics.h>
-#include "utils.h"
-#include "simulator.h"
+#include "utils.hpp"
+#include "simulator.hpp"
 
 
 class Robot

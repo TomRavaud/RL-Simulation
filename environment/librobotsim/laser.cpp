@@ -1,4 +1,4 @@
-#include "laser.h"
+#include "laser.hpp"
 
 Laser::Laser(pose2D initPose)
 {

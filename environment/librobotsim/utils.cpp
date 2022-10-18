@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "utils.hpp"
 
 pose2D pose2D::operator+(vector2D displacement)
 {
@@ -20,7 +20,7 @@ int keypress()
 {
 	Imagine::Event e;
 	do {
-		getEvent(0,e);
+		getEvent(0, e);
 		if(e.type == Imagine::EVT_KEY_ON)
 			return e.key;
 	} while (e.type != Imagine::EVT_NONE);

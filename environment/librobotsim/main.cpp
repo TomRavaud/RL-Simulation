@@ -1,8 +1,8 @@
 #include <Imagine/Graphics.h>
 
-#include "simulator.h"
-#include "robot.h"
-#include "laser.h"
+#include "simulator.hpp"
+#include "robot.hpp"
+#include "laser.hpp"
 
 
 int main()
@@ -43,13 +43,11 @@ int main()
         myRobot.erase();
         myRobot.teleop();
         myRobot.action();
-        // myRobot.move();
 
         myLaser.eraseRays();
 
         // Move the laser's origin with the robot
         myLaser.update(myRobot);
-
     }
 
     Imagine::endGraphics();
