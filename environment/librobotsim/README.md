@@ -10,7 +10,7 @@ Notes :
 
 * the map is represented as a constant 2D array of boolean values (1 for an obstacle, else 0)
 
-* the rays' synthesis is obtained using ray-casting techniques (DDA algorithm)
+* the rays' synthesis is obtained using ray-casting techniques (DDA algorithm) (it would also have been possible to calculate analytically the distance of the robot to geometric shapes in a given direction)
 
 
 

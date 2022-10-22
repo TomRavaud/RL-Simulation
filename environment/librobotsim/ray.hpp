@@ -54,6 +54,16 @@ public:
     }
 
     /**
+     * @brief Get the length of the ray
+     * 
+     * @return double 
+     */
+    inline double getLength() const
+    {
+        return length;
+    }
+
+    /**
      * @brief Set the ray's length
      * 
      * @param l 
